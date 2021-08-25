@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.Api", "src\Metrics.Api\Metrics.Api.csproj", "{C74311A8-99D2-4A05-BD53-EABEA9404022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.Services.Identity", "src\Metrics.Services.Identity\Metrics.Services.Identity.csproj", "{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.Services.Ingestion", "src\Metrics.Services.Ingestion\Metrics.Services.Ingestion.csproj", "{B6351F55-B99C-4874-98D3-EA9DA1E111D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.Common", "src\Metrics.CrossCutting.Common\Metrics.CrossCutting.Common.csproj", "{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.Command", "src\Metrics.CrossCutting.Command\Metrics.CrossCutting.Command.csproj", "{7A6A7EFC-A385-4703-B333-91EB1D054120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.Event", "src\Metrics.CrossCutting.Event\Metrics.CrossCutting.Event.csproj", "{4C6B796E-EEA4-45AD-AEB4-6588F24F1EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.IoC", "src\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj", "{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6A7EFC-A385-4703-B333-91EB1D054120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6A7EFC-A385-4703-B333-91EB1D054120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6A7EFC-A385-4703-B333-91EB1D054120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6A7EFC-A385-4703-B333-91EB1D054120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C6B796E-EEA4-45AD-AEB4-6588F24F1EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C6B796E-EEA4-45AD-AEB4-6588F24F1EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C6B796E-EEA4-45AD-AEB4-6588F24F1EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C6B796E-EEA4-45AD-AEB4-6588F24F1EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7298C86-AF77-419F-B732-2BEF50F13961}
+	EndGlobalSection
+EndGlobal
