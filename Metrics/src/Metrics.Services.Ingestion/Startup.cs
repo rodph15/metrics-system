@@ -1,3 +1,7 @@
+using Metrics.CrossCutting.IoC.Interfaces;
+using Metrics.CrossCutting.IoC.Commands;
+using Metrics.CrossCutting.IoC.Handlers;
+using Metrics.CrossCutting.IoC.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +30,8 @@ namespace Metrics.Services.Ingestion
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<ICommandHandler<CreateIngestion>, CreateIngestionHandler>();
+            services.AddRabbitMq(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

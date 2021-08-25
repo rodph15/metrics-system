@@ -1,9 +1,9 @@
-﻿using Metrics.CrossCutting.Command.Interfaces;
+﻿using Metrics.CrossCutting.IoC.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Metrics.CrossCutting.Command.Commands
+namespace Metrics.CrossCutting.IoC.Commands
 {
     public class CreateUser : ICommand
     {

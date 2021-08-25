@@ -1,9 +1,9 @@
-﻿using Metrics.CrossCutting.Event.Interfaces;
+﻿using Metrics.CrossCutting.IoC.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Metrics.CrossCutting.Event.Events
+namespace Metrics.CrossCutting.IoC.Events
 {
     public class UserCreatedEvent : IEvent
     {

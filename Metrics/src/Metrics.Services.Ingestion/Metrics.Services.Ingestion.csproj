@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj" />
+  </ItemGroup>
+
 
 </Project>

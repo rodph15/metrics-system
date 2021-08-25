@@ -1,7 +1,7 @@
-﻿using Metrics.CrossCutting.Command.Interfaces;
-using Metrics.CrossCutting.Event.Interfaces;
+﻿using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.RabbitMq;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using System;
 using System.Collections.Generic;
@@ -22,16 +22,28 @@ namespace Metrics.CrossCutting.IoC.Services
 
         public BusBuilder SubscribeToCommand<TCommand>() where TCommand : ICommand
         {
-            var handler = (ICommandHandler<TCommand>)_webHost.Services.GetService(typeof(ICommandHandler<ICommand>));
-            _busClient.WithCommandHandlerAsync(handler);
+            var serviceScopeFactory = (IServiceScopeFactory) _webHost.Services.GetService(typeof(IServiceScopeFactory));
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var handler = services.GetRequiredService<ICommandHandler<TCommand>>();
+
+                _busClient.WithCommandHandlerAsync(handler);
+            }
 
             return this;
         }
 
         public BusBuilder SubscribeToEvent<TEvent>() where TEvent : IEvent
         {
-            var handler = (IEventHandler<TEvent>)_webHost.Services.GetService(typeof(IEventHandler<TEvent>));
-            _busClient.WithEventHandlerAsync(handler);
+            var serviceScopeFactory = (IServiceScopeFactory)_webHost.Services.GetService(typeof(IServiceScopeFactory));
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var handler = services.GetRequiredService<IEventHandler<TEvent>>();
+
+                _busClient.WithEventHandlerAsync(handler);
+            }
 
             return this;
         }

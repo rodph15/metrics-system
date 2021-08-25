@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RawRabbit" Version="2.0.0-rc5" />
+    <ProjectReference Include="..\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 

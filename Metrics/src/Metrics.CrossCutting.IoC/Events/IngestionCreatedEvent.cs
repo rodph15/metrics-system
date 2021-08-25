@@ -1,26 +1,26 @@
-﻿using Metrics.CrossCutting.Event.Interfaces;
+﻿using Metrics.CrossCutting.IoC.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Metrics.CrossCutting.Event.Events
+namespace Metrics.CrossCutting.IoC.Events
 {
     public class IngestionCreatedEvent : IAuthenticatedEvent
     {
 
-        public Guid Id { get; }
+        public Guid Id { get;  }
         public Guid UserId { get; }
         public long SeqNum { get; }
         public int PickedLayers { get; }
         public int MachineId { get; }
-        public int InitDate { get; }
-        public int EndDate { get; }
+        public long InitDate { get; }
+        public long EndDate { get; }
 
-        protected IngestionCreatedEvent()
+        public IngestionCreatedEvent()
         {
         }
 
-        public IngestionCreatedEvent(Guid id, Guid userId, long seqNum, int pickedLayers, int machineId, int initDate, int endDate)
+        public IngestionCreatedEvent(Guid id, Guid userId, long seqNum, int pickedLayers, int machineId, long initDate, long endDate)
         {
             Id = id;
             UserId = userId;

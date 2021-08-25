@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Metrics.CrossCutting.Command.Interfaces
+namespace Metrics.CrossCutting.IoC.Interfaces
 {
     public interface IAuthenticatedCommand : ICommand
     {
