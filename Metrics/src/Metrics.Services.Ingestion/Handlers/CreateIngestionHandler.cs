@@ -20,14 +20,12 @@ namespace Metrics.Services.Ingestion.Handlers
         private readonly IBusClient _busClient;
         private readonly ICreateIngestionService _createIngestionService;
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateIngestionHandler(IBusClient busClient, ICreateIngestionService createIngestionService, IMapper mapper, IUnitOfWork unitOfWork)
+        public CreateIngestionHandler(IBusClient busClient, ICreateIngestionService createIngestionService, IMapper mapper)
         {
             _busClient = busClient;
             _createIngestionService = createIngestionService;
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
         }
 
         public async Task HandlerAsync(CreateIngestion command)
@@ -36,20 +34,14 @@ namespace Metrics.Services.Ingestion.Handlers
             {
                 var ingestionEntity = _mapper.Map<IngestionEntity>(command);
 
-                _createIngestionService.Add(ingestionEntity);
-
-                Console.WriteLine($"Creating ingestion : {command.MachineId}");
+                await _createIngestionService.Add(ingestionEntity);
 
                 await _busClient.PublishAsync(new IngestionCreatedEvent());
 
-                if(!await _unitOfWork.CommitAsync())
-                {
-                    throw new IngestionNotCreatedException();
-                }
-                    
             }
             catch(Exception ex)
             {
+                await _busClient.PublishAsync(new CreateIngetionRejectedEvent());
                 Console.WriteLine($"logging : {ex.Message}");
             }
         }

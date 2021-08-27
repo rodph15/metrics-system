@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Metrics.CrossCutting.IoC.Events
 {
-    public class IngestionCreatedEvent : IAuthenticatedEvent
+    public class IngestionCreatedEvent : IEvent
     {
 
         public Guid Id { get; set; }

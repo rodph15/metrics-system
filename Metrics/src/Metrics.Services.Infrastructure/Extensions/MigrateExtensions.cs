@@ -24,8 +24,7 @@ namespace Metrics.Services.Infrastructure.Extenions
                 var services = scope.ServiceProvider;
 
                 var dbContext = services.GetRequiredService<MetricsDbContext>();
-                if(!dbContext.Database.EnsureCreated())
-                    dbContext.Database.Migrate();
+                dbContext.Database.EnsureCreated();
             }
 
             return webHost;

@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Metrics.CrossCutting.IoC.Commands
 {
-    public class CreateIngestion : IAuthenticatedCommand
+    public class CreateIngestion : ICommand
     {
-        public Guid UserId { get; set; }
         public long SeqNum { get; set; }
         public int PickedLayers { get; set; }
         public int MachineId { get; set; }

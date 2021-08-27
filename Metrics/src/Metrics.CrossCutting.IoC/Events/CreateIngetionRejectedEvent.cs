@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Metrics.CrossCutting.IoC.Events
 {
-    public class CreateUserRejectedEvent : IRejectedEvent
+    public class CreateIngetionRejectedEvent : IRejectedEvent
     {
-        public string Email { get; set; }
+        public int MachineId { get; set; }
         public string Reason { get; set; }
         public int Code { get; set; }
 

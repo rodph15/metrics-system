@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Metrics.CrossCutting.ExceptionManagement.Exceptions;
 using Metrics.Services.Domain.Entities;
 using Metrics.Services.Domain.Interface;
 using Metrics.Services.Ingestion.Interfaces;
@@ -13,14 +14,21 @@ namespace Metrics.Services.Ingestion.Services
     {
 
         private readonly IIngestionRepository _ingestionRepository;
-        public CreateIngestionService(IIngestionRepository ingestionRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CreateIngestionService(IIngestionRepository ingestionRepository, IUnitOfWork unitOfWork)
         {
             _ingestionRepository = ingestionRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public void Add(IngestionEntity ingestionEntity)
+        public async Task Add(IngestionEntity ingestionEntity)
         {
             _ingestionRepository.Save(ingestionEntity);
+            if(!await _unitOfWork.CommitAsync())
+            {
+                throw new IngestionNotCreatedException();
+            }
         }
 
         

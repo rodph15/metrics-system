@@ -5,21 +5,19 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.Api", "src\Metrics.Api\Metrics.Api.csproj", "{C74311A8-99D2-4A05-BD53-EABEA9404022}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.Services.Identity", "src\Metrics.Services.Identity\Metrics.Services.Identity.csproj", "{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.Services.Ingestion", "src\Metrics.Services.Ingestion\Metrics.Services.Ingestion.csproj", "{B6351F55-B99C-4874-98D3-EA9DA1E111D5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.CrossCutting.Common", "src\Metrics.CrossCutting.Common\Metrics.CrossCutting.Common.csproj", "{1BD68D21-FFBF-43E2-8FAE-A089EC8D82FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.CrossCutting.IoC", "src\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj", "{28AFE6D1-F1D8-4E86-9DE8-23A13893CFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.ExceptionManagement", "src\Metrics.CrossCutting.Exception\Metrics.CrossCutting.ExceptionManagement.csproj", "{4895E86E-E004-4506-B132-340B722FF31E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.CrossCutting.ExceptionManagement", "src\Metrics.CrossCutting.Exception\Metrics.CrossCutting.ExceptionManagement.csproj", "{4895E86E-E004-4506-B132-340B722FF31E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.Services.Domain", "src\Metrics.Services.Domain\Metrics.Services.Domain.csproj", "{8536696E-3F26-4362-ADDD-8B5449DA2B11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.Services.Domain", "src\Metrics.Services.Domain\Metrics.Services.Domain.csproj", "{8536696E-3F26-4362-ADDD-8B5449DA2B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.Services.Infrastructure", "src\Metrics.Services.Infrastructure\Metrics.Services.Infrastructure.csproj", "{0C2F0A20-54F1-4A9D-B445-124A7E0C4201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.Services.Infrastructure", "src\Metrics.Services.Infrastructure\Metrics.Services.Infrastructure.csproj", "{0C2F0A20-54F1-4A9D-B445-124A7E0C4201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics.CrossCutting.Configuration", "src\Metrics.CrossCutting.Configuration\Metrics.CrossCutting.Configuration.csproj", "{7F5D7A2B-C284-4F66-8411-2B1D38DFAB20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics.CrossCutting.Configuration", "src\Metrics.CrossCutting.Configuration\Metrics.CrossCutting.Configuration.csproj", "{7F5D7A2B-C284-4F66-8411-2B1D38DFAB20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74311A8-99D2-4A05-BD53-EABEA9404022}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2C1A064-D20B-4498-9F20-F5EAF9CF49A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6351F55-B99C-4874-98D3-EA9DA1E111D5}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metrics.Services.Infrastructure.Migrations
 {
     [DbContext(typeof(MetricsDbContext))]
-    [Migration("20210827020635_test")]
-    partial class test
+    [Migration("20210827120822_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,10 +49,6 @@ namespace Metrics.Services.Infrastructure.Migrations
                     b.Property<long>("SeqNum")
                         .HasColumnType("bigint")
                         .HasColumnName("SEQ_NUM");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ID_USER");
 
                     b.HasKey("Id");
 

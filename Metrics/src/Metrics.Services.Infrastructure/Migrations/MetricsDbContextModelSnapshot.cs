@@ -48,10 +48,6 @@ namespace Metrics.Services.Infrastructure.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("SEQ_NUM");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ID_USER");
-
                     b.HasKey("Id");
 
                     b.ToTable("INGESTION");

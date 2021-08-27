@@ -1,4 +1,5 @@
-﻿using Metrics.CrossCutting.IoC.Commands;
+﻿using Metrics.Api.Interfaces;
+using Metrics.CrossCutting.IoC.Commands;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RawRabbit;
@@ -14,10 +15,12 @@ namespace Metrics.Api.Controllers
     public class IngestionController : Controller
     {
         private readonly IBusClient _busClient;
+        private readonly IIngestionReportService _ingestionReportService;
        
-        public IngestionController(IBusClient busClient)
+        public IngestionController(IBusClient busClient, IIngestionReportService ingestionReportService)
         {
             _busClient = busClient;
+            _ingestionReportService = ingestionReportService;
         }
 
         [HttpPost]
@@ -33,6 +36,20 @@ namespace Metrics.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> GetCalculation()
+        {
+            try
+            {
+                var result = await _ingestionReportService.MetricCalculation();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

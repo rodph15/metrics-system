@@ -8,7 +8,6 @@ namespace Metrics.Services.Domain.Entities
     public class IngestionEntity
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
         public long SeqNum { get; set; }
         public int PickedLayers { get; set; }
         public int MachineId { get; set; }

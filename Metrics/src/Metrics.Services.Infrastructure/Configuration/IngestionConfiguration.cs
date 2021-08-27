@@ -44,10 +44,6 @@ namespace Metrics.Services.Infrastructure.Configuration
                 .IsRequired()
                 .HasColumnName("SEQ_NUM");
 
-            modelBuilder
-                .Property(p => p.UserId)
-                .IsRequired()
-                .HasColumnName("ID_USER");
 
         }
     }

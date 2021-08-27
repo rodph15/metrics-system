@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Metrics.Services.Infrastructure.Migrations
 {
-    public partial class test : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,6 @@ namespace Metrics.Services.Infrastructure.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ID_USER = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SEQ_NUM = table.Column<long>(type: "bigint", nullable: false),
                     PICKED_LAYERS = table.Column<int>(type: "int", nullable: false),
                     ID_MACHINE = table.Column<int>(type: "int", nullable: false),
