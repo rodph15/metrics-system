@@ -7,17 +7,8 @@ namespace Metrics.CrossCutting.IoC.Events
 {
     public class UserCreatedEvent : IEvent
     {
-        public string Name { get; }
-        public string Email { get; }
+        public string Name { get; set; }
+        public string Email { get; set; }
 
-        protected UserCreatedEvent()
-        {
-        }
-
-        public UserCreatedEvent(string name, string email)
-        {
-            Name = name;
-            Email = email;
-        }
     }
 }

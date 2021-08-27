@@ -7,15 +7,7 @@ namespace Metrics.CrossCutting.IoC.Events
 {
     public class UserAuthenticatedEvent : IEvent
     {
-        public string Email { get; }
+        public string Email { get; set; }
 
-        protected UserAuthenticatedEvent()
-        {
-        }
-
-        public UserAuthenticatedEvent(string email)
-        {
-            Email = email;
-        }
     }
 }

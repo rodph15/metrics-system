@@ -25,12 +25,9 @@ namespace Metrics.Api.Controllers
         {
             try
             {
-                command.Id = Guid.NewGuid();
-                command.EndDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                command.PickedLayers = 4;
                 await _busClient.PublishAsync(command);
 
-                return Accepted($"ingestion/{command.Id}");
+                return Accepted($"ingestion/{command.MachineId}");
             }catch(Exception ex)
             {
                 return BadRequest(ex.Message);

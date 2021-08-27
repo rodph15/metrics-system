@@ -1,7 +1,7 @@
 using Metrics.CrossCutting.IoC.Events;
-using Metrics.CrossCutting.IoC.Handlers;
 using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.RabbitMq;
+using Metrics.Services.Ingestion.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

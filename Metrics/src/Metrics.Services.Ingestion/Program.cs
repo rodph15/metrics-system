@@ -1,4 +1,5 @@
 using Metrics.CrossCutting.IoC.Commands;
+using Metrics.CrossCutting.IoC.Events;
 using Metrics.CrossCutting.IoC.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

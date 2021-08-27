@@ -12,4 +12,8 @@
     <PackageReference Include="RawRabbit.vNext" Version="1.10.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MongoDb\" />
+  </ItemGroup>
+
 </Project>

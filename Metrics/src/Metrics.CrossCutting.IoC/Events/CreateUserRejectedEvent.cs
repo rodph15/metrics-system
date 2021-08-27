@@ -7,18 +7,10 @@ namespace Metrics.CrossCutting.IoC.Events
 {
     public class CreateUserRejectedEvent : IRejectedEvent
     {
-        public string Email { get; }
-        public string Reason { get; }
-        public int Code { get; }
+        public string Email { get; set; }
+        public string Reason { get; set; }
+        public int Code { get; set; }
 
-        protected CreateUserRejectedEvent() { 
-        }
 
-        public CreateUserRejectedEvent(string email, string reason, int code)
-        {
-            Email = email;
-            Reason = reason;
-            Code = code;
-        }
     }
 }

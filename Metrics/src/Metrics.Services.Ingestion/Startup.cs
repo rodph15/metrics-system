@@ -1,6 +1,5 @@
 using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.Commands;
-using Metrics.CrossCutting.IoC.Handlers;
 using Metrics.CrossCutting.IoC.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +13,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Metrics.Services.Domain.Interface;
+using Metrics.Services.Infrastructure.Repositories;
+using Metrics.Services.Ingestion.Interfaces;
+using Metrics.Services.Ingestion.Services;
+using Metrics.Services.Ingestion.Handlers;
+using Metrics.CrossCutting.Configuration.Mapper;
+using Metrics.Services.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+using Metrics.Services.Infrastructure.UoW;
 
 namespace Metrics.Services.Ingestion
 {
@@ -29,9 +38,16 @@ namespace Metrics.Services.Ingestion
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddMapperProfile();
             services.AddControllers();
+            services.AddDbContext<MetricsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ICommandHandler<CreateIngestion>, CreateIngestionHandler>();
+            services.AddScoped<IIngestionRepository, IngestionRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICreateIngestionService, CreateIngestionService>();
             services.AddRabbitMq(Configuration);
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +63,6 @@ namespace Metrics.Services.Ingestion
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

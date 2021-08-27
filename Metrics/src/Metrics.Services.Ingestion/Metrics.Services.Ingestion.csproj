@@ -5,7 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Metrics.CrossCutting.Configuration\Metrics.CrossCutting.Configuration.csproj" />
+    <ProjectReference Include="..\Metrics.Services.Infrastructure\Metrics.Services.Infrastructure.csproj" />
+    <ProjectReference Include="..\Metrics.CrossCutting.Exception\Metrics.CrossCutting.ExceptionManagement.csproj" />
     <ProjectReference Include="..\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Metrics.Services.Domain\Metrics.Services.Domain.csproj" />
   </ItemGroup>
 
 

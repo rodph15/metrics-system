@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metrics.CrossCutting.IoC.Handlers
+namespace Metrics.Services.Ingestion.Handlers
 {
     public class IngestionCreatedHandler : IEventHandler<IngestionCreatedEvent>
     {
