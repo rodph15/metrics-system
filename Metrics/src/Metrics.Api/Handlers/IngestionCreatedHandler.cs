@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metrics.Services.Ingestion.Handlers
+namespace Metrics.Api.Handlers
 {
     public class IngestionCreatedHandler : IEventHandler<IngestionCreatedEvent>
     {

@@ -1,6 +1,5 @@
 using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.Commands;
-using Metrics.CrossCutting.IoC.Handlers;
 using Metrics.CrossCutting.IoC.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

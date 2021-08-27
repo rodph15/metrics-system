@@ -8,5 +8,9 @@
     <ProjectReference Include="..\Metrics.CrossCutting.IoC\Metrics.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+
 
 </Project>

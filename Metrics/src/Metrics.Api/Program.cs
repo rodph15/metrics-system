@@ -1,5 +1,7 @@
+using Metrics.CrossCutting.IoC.Commands;
 using Metrics.CrossCutting.IoC.Events;
-using Metrics.CrossCutting.IoC.Services;
+using Metrics.CrossCutting.IoC.Extensions;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -15,13 +17,15 @@ namespace Metrics.Api
     {
         public static void Main(string[] args)
         {
-            ServiceHost.Create<Startup>(args)
-                .UseRabbitMq()
-                .SubscribeToEvent<IngestionCreatedEvent>()
-                .Build()
-                .Run();
+            BuildWebHost(args)
+            .Run();
         }
 
-    
+        public static IWebHost BuildWebHost(string[] args) =>
+                WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build()
+                .SubscribtoEvent<IngestionCreatedEvent>();
+
     }
 }

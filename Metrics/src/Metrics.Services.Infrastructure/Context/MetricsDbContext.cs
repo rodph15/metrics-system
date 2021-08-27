@@ -27,5 +27,6 @@ namespace Metrics.Services.Infrastructure.Context
             base.OnModelCreating(modelBuilder);
 
         }
+
     }
 }

@@ -1,5 +1,6 @@
 using Metrics.CrossCutting.IoC.Commands;
-using Metrics.CrossCutting.IoC.Services;
+using Metrics.CrossCutting.IoC.Extensions;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -15,11 +16,14 @@ namespace Metrics.Services.Identity
     {
         public static void Main(string[] args)
         {
-            ServiceHost.Create<Startup>(args)
-                .UseRabbitMq()
-                .SubscribeToCommand<CreateUser>()
-                .Build()
-                .Run();
+            BuildWebHost(args)
+            .Run();
         }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+                WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build()
+                .SubscribtoCommand<CreateUser>();
     }
 }

@@ -23,6 +23,7 @@ using Metrics.CrossCutting.Configuration.Mapper;
 using Metrics.Services.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Metrics.Services.Infrastructure.UoW;
+using RawRabbit;
 
 namespace Metrics.Services.Ingestion
 {
@@ -41,7 +42,7 @@ namespace Metrics.Services.Ingestion
             
             services.AddMapperProfile();
             services.AddControllers();
-            services.AddDbContext<MetricsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<MetricsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),ServiceLifetime.Singleton, ServiceLifetime.Singleton);
             services.AddScoped<ICommandHandler<CreateIngestion>, CreateIngestionHandler>();
             services.AddScoped<IIngestionRepository, IngestionRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -57,7 +58,7 @@ namespace Metrics.Services.Ingestion
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

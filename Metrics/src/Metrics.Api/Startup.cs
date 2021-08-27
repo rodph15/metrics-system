@@ -1,3 +1,4 @@
+using Metrics.Api.Handlers;
 using Metrics.CrossCutting.IoC.Events;
 using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.RabbitMq;
