@@ -93,7 +93,11 @@ namespace Metrics.InputMachine
             }
 
             foreach (var item in inputMachineList)
+            {
                 item.Start();
+                Thread.Sleep(1000);
+            }
+                
 
             Console.ReadLine();
 

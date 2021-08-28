@@ -8,7 +8,10 @@ using Metrics.CrossCutting.IoC.RabbitMq;
 using Metrics.Services.Domain.Interface;
 using Metrics.Services.Infrastructure.Context;
 using Metrics.Services.Infrastructure.Repositories;
+using Metrics.Services.Infrastructure.UoW;
 using Metrics.Services.Ingestion.Handlers;
+using Metrics.Services.Ingestion.Interfaces;
+using Metrics.Services.Ingestion.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,10 +43,13 @@ namespace Metrics.Api
             services.AddMapperProfile();
             services.AddControllers();
             services.AddHealthChecks().AddDbContextCheck<MetricsDbContext>();
-            services.AddDbContext<MetricsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<MetricsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Singleton, ServiceLifetime.Singleton);
             services.AddScoped<IIngestionRepository, IngestionRepository>();
             services.AddScoped<IIngestionReportService, IngestionReportService>();
             services.AddScoped<IEventHandler<IngestionCreatedEvent>, IngestionCreatedHandler>();
+            services.AddScoped<IIngestionRepository, IngestionRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICreateIngestionService, CreateIngestionService>();
             services.AddRabbitMq(Configuration);
             
         }

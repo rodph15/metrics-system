@@ -36,7 +36,7 @@ namespace Metrics.Services.Ingestion.Handlers
 
                 await _createIngestionService.Add(ingestionEntity);
 
-                await _busClient.PublishAsync(new IngestionCreatedEvent());
+                await _busClient.PublishAsync(_mapper.Map<IngestionCreatedEvent>(command));
 
             }
             catch(Exception ex)

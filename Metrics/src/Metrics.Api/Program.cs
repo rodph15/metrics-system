@@ -1,6 +1,7 @@
 using Metrics.CrossCutting.IoC.Commands;
 using Metrics.CrossCutting.IoC.Events;
 using Metrics.CrossCutting.IoC.Extensions;
+using Metrics.Services.Infrastructure.Extenions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +26,8 @@ namespace Metrics.Api
                 WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build()
-                .SubscribtoEvent<IngestionCreatedEvent>();
+                .SubscribtoEvent<IngestionCreatedEvent>()
+                .MigrateDatabase();
 
     }
 }
