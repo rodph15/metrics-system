@@ -73,7 +73,7 @@ namespace Metrics.InputMachine
                 };
 
                 createIngestion.Exec();
-                Thread.Sleep(5000);
+                Thread.Sleep(int.Parse(ConfigurationManager.AppSettings.Get("SleepConfiguration").ToString()));
             }
         }
 

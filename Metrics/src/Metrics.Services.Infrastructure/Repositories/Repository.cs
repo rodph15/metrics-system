@@ -20,13 +20,21 @@ namespace Metrics.Services.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public void Save(TEntity entity) => _dbContext.Add(entity);
+        public async Task Save(TEntity entity) => await _dbContext.AddAsync(entity);
 
-        public void SaveMany(IEnumerable<TEntity> entity) => _dbContext.AddRange(entity);
+        public async Task SaveMany(IEnumerable<TEntity> entity) => await _dbContext.AddRangeAsync(entity);
 
         public void Delete(TEntity entity) => _dbContext.Remove(entity);
 
         public void DeleteMany(IEnumerable<TEntity> entity) => _dbContext.RemoveRange(entity);
+
+        public async Task<int> CountAll() => await _dbContext.Set<TEntity>().CountAsync();
+
+        public async Task<int> SumItem(Expression<Func<TEntity, int>> where) => await _dbContext.Set<TEntity>().SumAsync(where);
+
+        public async Task<TEntity> FirstItem(Expression<Func<TEntity, long>> where) => await _dbContext.Set<TEntity>().OrderBy(where).FirstAsync();
+
+        public async Task<TEntity> LastItem(Expression<Func<TEntity, long>> where) => await _dbContext.Set<TEntity>().OrderBy(where).LastAsync();
 
         public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> where) => await _dbContext.Set<TEntity>().Where(where).ToListAsync();
 

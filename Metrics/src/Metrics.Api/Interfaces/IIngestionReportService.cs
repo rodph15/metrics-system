@@ -8,6 +8,7 @@ namespace Metrics.Api.Interfaces
 {
     public interface IIngestionReportService
     {
-        Task<MetricCalculationDto> MetricCalculation();
+        Task<StackingVelocityDto> StackingVelocity();
+        Task<LayersRateDto> LayersRate();
     }
 }

@@ -37,19 +37,34 @@ namespace Metrics.Api.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetCalculation()
+        [HttpGet("velocity")]
+        public async Task<IActionResult> StackingVelocity()
         {
             try
             {
-                var result = await _ingestionReportService.MetricCalculation();
-                return Ok(result);
+                var result = await _ingestionReportService.StackingVelocity();
+                return Ok(result.ToString());
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("rate")]
+        public async Task<IActionResult> LayersRate()
+        {
+            try
+            {
+                var result = await _ingestionReportService.LayersRate();
+                return Ok(result.ToString());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
     }
 }

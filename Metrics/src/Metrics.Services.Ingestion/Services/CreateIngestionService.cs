@@ -24,7 +24,7 @@ namespace Metrics.Services.Ingestion.Services
 
         public async Task Add(IngestionEntity ingestionEntity)
         {
-            _ingestionRepository.Save(ingestionEntity);
+            await _ingestionRepository.Save(ingestionEntity);
             if(!await _unitOfWork.CommitAsync())
             {
                 throw new IngestionNotCreatedException();

@@ -14,9 +14,16 @@ namespace Metrics.Services.Domain.Interface
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> where);
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> where,
             params Expression<Func<TEntity, object>>[] includes);
-        void Save(TEntity entity);
-        void SaveMany(IEnumerable<TEntity> entity);
+        Task Save(TEntity entity);
+        Task SaveMany(IEnumerable<TEntity> entity);
         void Delete(TEntity entity);
         void DeleteMany(IEnumerable<TEntity> entity);
+        Task<int> CountAll();
+
+        Task<int> SumItem(Expression<Func<TEntity, int>> where);
+
+        Task<TEntity> FirstItem(Expression<Func<TEntity, long>> where);
+
+        Task<TEntity> LastItem(Expression<Func<TEntity, long>> where);
     }
 }
