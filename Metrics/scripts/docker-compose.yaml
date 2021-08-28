@@ -1,0 +1,41 @@
+version: "3.9"  # optional since v1.27.0
+services:
+
+ start-depedencies:
+  image: dadarek/wait-for-dependencies
+  depends_on:
+   - sqlserver
+   - rabbitmq
+  command: rabbitmq:5672
+
+ api:
+  build: ../src/Metrics.Api
+  links:
+   - rabbitmq
+   - sqlserver
+  ports:
+   - '5000:5000'
+
+ ingestion:
+  build: ../src/Metrics.Services.Ingestion
+  links:
+   - rabbitmq
+   - sqlserver
+  ports:
+   - '5050:5050'
+
+ inputmachine:
+  build: ../src/Metrics.InputMachine
+
+ sqlserver:
+  image: mcr.microsoft.com/mssql/server
+  volumes:
+   - ./data/db:/data/db
+  ports:
+   - '14333:1433'
+
+ rabbitmq:
+  image: rabbitmq
+  ports:
+   - '5672:5672'
+   - '15672:15672'

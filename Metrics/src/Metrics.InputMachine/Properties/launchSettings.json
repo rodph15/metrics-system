@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Metrics.InputMachine": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
