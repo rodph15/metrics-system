@@ -1,7 +1,7 @@
 using Metrics.Api.Handlers;
 using Metrics.Api.Interfaces;
 using Metrics.Api.Services;
-using Metrics.CrossCutting.Configuration.Mapper;
+using Metrics.CrossCutting.Configuration.Map;
 using Metrics.CrossCutting.IoC.Events;
 using Metrics.CrossCutting.IoC.Interfaces;
 using Metrics.CrossCutting.IoC.RabbitMq;

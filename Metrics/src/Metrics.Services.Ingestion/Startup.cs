@@ -19,11 +19,11 @@ using Metrics.Services.Infrastructure.Repositories;
 using Metrics.Services.Ingestion.Interfaces;
 using Metrics.Services.Ingestion.Services;
 using Metrics.Services.Ingestion.Handlers;
-using Metrics.CrossCutting.Configuration.Mapper;
 using Metrics.Services.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Metrics.Services.Infrastructure.UoW;
 using RawRabbit;
+using Metrics.CrossCutting.Configuration.Map;
 
 namespace Metrics.Services.Ingestion
 {

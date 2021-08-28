@@ -22,13 +22,16 @@ namespace Metrics.Services.Ingestion.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Add(IngestionEntity ingestionEntity)
+        public async Task<bool> Add(IngestionEntity ingestionEntity)
         {
             await _ingestionRepository.Save(ingestionEntity);
-            if(!await _unitOfWork.CommitAsync())
+            var result = await _unitOfWork.CommitAsync();
+            if (!result)
             {
                 throw new IngestionNotCreatedException();
             }
+
+            return result;
         }
 
         

@@ -8,6 +8,6 @@ namespace Metrics.Services.Ingestion.Interfaces
 {
     public interface ICreateIngestionService
     {
-        Task Add(IngestionEntity ingestionEntity);
+        Task<bool> Add(IngestionEntity ingestionEntity);
     }
 }

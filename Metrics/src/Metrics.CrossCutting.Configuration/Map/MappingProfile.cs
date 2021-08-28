@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Metrics.CrossCutting.Configuration.Mapper
+namespace Metrics.CrossCutting.Configuration.Map
 {
     public class MappingProfile : MapperConfigurationExpression
     {

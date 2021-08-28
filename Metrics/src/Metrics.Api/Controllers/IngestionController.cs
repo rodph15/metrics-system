@@ -1,5 +1,6 @@
 ﻿using Metrics.Api.Interfaces;
 using Metrics.CrossCutting.IoC.Commands;
+using Metrics.Services.Domain.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RawRabbit;
@@ -16,7 +17,9 @@ namespace Metrics.Api.Controllers
     {
         private readonly IBusClient _busClient;
         private readonly IIngestionReportService _ingestionReportService;
-       
+        private readonly IIngestionRepository _ingestionRepository;
+
+
         public IngestionController(IBusClient busClient, IIngestionReportService ingestionReportService)
         {
             _busClient = busClient;

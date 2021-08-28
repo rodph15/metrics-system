@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Metrics.CrossCutting.Configuration.Mapper
+namespace Metrics.CrossCutting.Configuration.Map
 {
     public static class MapperExtensions
     {
