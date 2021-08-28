@@ -26,6 +26,8 @@ services:
 
  inputmachine:
   build: ../src/Metrics.InputMachine
+  ports:
+   - '80:80'
 
  sqlserver:
   image: mcr.microsoft.com/mssql/server

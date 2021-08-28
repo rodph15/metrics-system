@@ -5,4 +5,6 @@ WORKDIR /ingestion
 COPY ./bin .
 ENV ASPNETCORE_URLS http://*:5050
 ENV ASPNETCORE_ENVIRONMENT Docker
+RUN dotnet restore
+RUN dotnet build
 ENTRYPOINT dotnet Metrics.Services.Ingestion.dll

@@ -5,4 +5,6 @@ WORKDIR /api
 COPY ./bin .
 ENV ASPNETCORE_URLS http://*:5000
 ENV ASPNETCORE_ENVIRONMENT Docker
+RUN dotnet restore
+RUN dotnet build
 ENTRYPOINT dotnet Metrics.Api.dll
